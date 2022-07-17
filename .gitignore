@@ -3,3 +3,4 @@ venv
 .idea
 
 jmad/jmad/__pycache__
+geckodriver.log
