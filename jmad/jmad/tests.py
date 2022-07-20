@@ -2,12 +2,29 @@ from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from solos.models import Solo
+
 
 class StudentTestCase(LiveServerTestCase):
 
     def setUp(self) -> None:
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(2)
+        self.solo1 = Solo.objects.create(
+            instrument='saxophone',
+            artist='John Coltrane',
+            track='My Favorite Things'
+        )
+        self.solo2 = Solo.objects.create(
+            instrument='saxophone',
+            artist='Cannonball Adderley',
+            track='All Blues'
+        )
+        self.solo3 = Solo.objects.create(
+            instrument='saxophone',
+            artist='Cannonball Adderley',
+            track='Waltz for Debby'
+        )
 
     def tearDown(self) -> None:
         self.browser.quit()
@@ -42,7 +59,7 @@ class StudentTestCase(LiveServerTestCase):
         second_artist_input.send_keys('Cannonball Adderley')
         self.browser.find_element(By.CSS_SELECTOR, 'form button').click()
         second_search_results = self.browser.find_elements(By.CSS_SELECTOR, '.jmad-search-result')
-        self.assertEqual(len(search_results), 2)
+        self.assertEqual(len(second_search_results), 2)
         # He clicks on a search result.
         # The solo page has the title, artist and album for this particular solo.
         # He also sees the start time and end time of the solo.

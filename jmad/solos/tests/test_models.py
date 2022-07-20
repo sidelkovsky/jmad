@@ -11,6 +11,21 @@ class SoloModelTestCase(TestCase):
             artist='Oscar Peterson',
             instrument='piano',
         )
+        self.solo1 = Solo.objects.create(
+            instrument='saxophone',
+            artist='John Coltrane',
+            track='My Favorite Things'
+        )
+        self.solo2 = Solo.objects.create(
+            instrument='saxophone',
+            artist='Cannonball Adderley',
+            track='All Blues'
+        )
+        self.solo3 = Solo.objects.create(
+            instrument='saxophone',
+            artist='Cannonball Adderley',
+            track='Waltz for Debby'
+        )
 
     def test_solo_basic(self):
         """
