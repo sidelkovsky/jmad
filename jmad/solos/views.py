@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import request
+from django.http import request, HttpResponse
+
 
 def index(request):
-    pass
+    return render(request, 'solos/index.html')
+
