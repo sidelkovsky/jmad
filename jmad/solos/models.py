@@ -8,4 +8,4 @@ class Solo(models.Model):
     album = models.CharField(max_length=200)
     start_time = models.CharField(max_length=20, blank=True, null=True)
     end_time = models.CharField(max_length=20, blank=True, null=True)
-    
+
