@@ -10,21 +10,9 @@ class SoloModelTestCase(TestCase):
             track='Falling in Love with Love',
             artist='Oscar Peterson',
             instrument='piano',
-        )
-        self.solo1 = Solo.objects.create(
-            instrument='saxophone',
-            artist='John Coltrane',
-            track='My Favorite Things'
-        )
-        self.solo2 = Solo.objects.create(
-            instrument='saxophone',
-            artist='Cannonball Adderley',
-            track='All Blues'
-        )
-        self.solo3 = Solo.objects.create(
-            instrument='saxophone',
-            artist='Cannonball Adderley',
-            track='Waltz for Debby'
+            album='At the Stratford Shakespearean Festival',
+            start_time='1:24',
+            end_time='4:06'
         )
 
     def test_solo_basic(self):
@@ -32,3 +20,4 @@ class SoloModelTestCase(TestCase):
         Test the basic functionality of Solo
         """
         self.assertEqual(self.solo.artist, 'Oscar Peterson')
+        self.assertEqual(self.solo.end_time, '4:06')
